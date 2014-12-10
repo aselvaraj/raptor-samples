@@ -3,23 +3,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Widgets Demo</title>
-    <optimizer-head/>
+  <meta charset="UTF-8">
+  <title>Widgets Demo</title>
+  <optimizer-head/>
 </head>
 <body>
-    <div class="my-component" w-bind="./widget">
-        <div class="btn-group">
-            <sample-button label="Click Me" variant="primary" w-id="primaryButton"/>
-            <sample-button label="Click Me" variant="success" w-id="successButton"/>
-            <sample-button label="Click Me" variant="danger" w-id="dangerButton"/>
-        </div>
-        <div w-el-id="notification-container">
-        </div>
-    </div>
+  <div class="my-component" w-bind="./widget">
+    <async-fragment
+      data-provider="data.asyncDP"
+      var="response"
+      timeout="40000"
+      timeout-message="The server took too long to respond">
 
-    <optimizer-body/>
-    <w-init-widgets/>
-    <browser-refresh/>
+      <sample-button label="Click Me" variant="primary" w-id="primaryButton"/>
+      <sample-button label="Click Me" variant="success" w-id="successButton"/>
+      <sample-button label="Click Me" variant="danger" w-id="dangerButton"/>
+      <div w-el-id="notification-container"></div>
+  </div>
+
+  <optimizer-body/>
+  <w-init-widgets/>
+  <browser-refresh/>
 </body>
 </html>
